@@ -16,7 +16,7 @@ your transactions grouped by date | [/api/v1/transactions/group_by_day/](http://
 # fibonacci
 
 function itself located in [`core/utils.py`](core/utils.py)  
-also there's a [endpoint for fibonacci number]((http://akvelon-python-internship.herokuapp.com/api/v1/fibonacci/))
+also there's a [endpoint for fibonacci number](http://akvelon-python-internship.herokuapp.com/api/v1/fibonacci/)
 
 # Run project
 ## With docker:
