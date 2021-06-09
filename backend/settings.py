@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 
+import os
 import environ
 env = environ.Env(
 DEBUG=(bool, False)
@@ -146,6 +147,11 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+# Place static in the same location as webpack build files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#STATICFILES_DIRS = (
+#    os.path.join(BASE_DIR, 'dist/static'),  # update the STATICFILES_DIRS
+#)
 
 
 REST_FRAMEWORK = {
