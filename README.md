@@ -9,6 +9,7 @@ description | path | detail
 --- | --- | ---
 REST API registration | [/rest-auth/registration/](https://akvelon-python-internship.herokuapp.com/rest-auth/registration/) | allows both cookie and token based authentication
 Swagger | [/swagger/](https://akvelon-python-internship.herokuapp.com/swagger/) 
+|CRUD information about your account | [/rest-auth/user/](http://akvelon-python-internship.herokuapp.com/rest-auth/user/) | requires registration/authentication.
 CRUD on your transactions | [/api/v1/transactions/](http://akvelon-python-internship.herokuapp.com/api/v1/transactions/) or  /api/v1/transactions/\<id\> | requires registration/authentication. Allows filtering(open the link)|
 your transactions grouped by date | [/api/v1/transactions/group_by_day/](http://akvelon-python-internship.herokuapp.com/api/v1/transactions/group_by_day/) | cumulative money gain per date. Allows filtering(open the link)
 | find Nth fibonacci number |[/api/v1/fibonacci/](http://akvelon-python-internship.herokuapp.com/api/v1/fibonacci/)

@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'core.apps.CoreConfig',
+    
 
     'rest_framework',
     'drf_yasg',
@@ -167,5 +168,8 @@ REST_FRAMEWORK = {
 
 django_heroku.settings(locals())
 
-# Somehow heroku messes that up
-del DATABASES['default']['OPTIONS']['sslmode']
+try:
+    # Somehow heroku messes that up
+    del DATABASES['default']['OPTIONS']['sslmode']
+except:
+    pass
