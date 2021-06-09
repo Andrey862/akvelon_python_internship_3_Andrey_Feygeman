@@ -1,20 +1,23 @@
-from django.shortcuts import render
-
-from rest_framework import viewsets
-from rest_framework.generics import GenericAPIView
-from .models import Transaction
-from .serializers import TransactionSerializer, GroupTransactionSerializer, FibonacciSerializer
-from .permissions import IsTheOwnerOf
-from .service import TransactionFilter
-from rest_framework.permissions import IsAuthenticated
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.response import Response
-from rest_framework.decorators import action
-
-
-from rest_framework.negotiation import DefaultContentNegotiation
 from django.db.models import Sum
+from django.shortcuts import render
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import viewsets
+from rest_framework.decorators import action
+#from rest_framework.views import APIView
+from rest_framework.generics import GenericAPIView
+from rest_framework.negotiation import DefaultContentNegotiation
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+
+from .models import Transaction
+from .permissions import IsTheOwnerOf
+from .serializers import (FibonacciSerializer, GroupTransactionSerializer,
+                          TransactionSerializer)
+from .service import TransactionFilter
 from .utils import fibonacci
+
+from django.urls import get_resolver, reverse
+
 
 class TransactionViewSet(viewsets.ModelViewSet):
     """
@@ -44,6 +47,9 @@ class TransactionViewSet(viewsets.ModelViewSet):
 
     @action(detail=False)
     def group_by_day(self, request: DefaultContentNegotiation):
+        """
+            returns transactions grouped by date with cumulative transaction amount
+        """
         queryset = self.filter_queryset(self.get_queryset())
         aggregated = queryset.values('date').annotate(sum=Sum('amount')).order_by()
 
@@ -54,7 +60,10 @@ class TransactionViewSet(viewsets.ModelViewSet):
 
 class Fibonacci(GenericAPIView):
     serializer_class = FibonacciSerializer
-    def post(self, request: DefaultContentNegotiation, *args, **kwargs):
+    def put(self, request: DefaultContentNegotiation, *args, **kwargs):
+        """
+            returns Nth fibonacci number
+        """
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         result = fibonacci(serializer.data['n'])

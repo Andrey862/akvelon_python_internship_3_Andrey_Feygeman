@@ -10,6 +10,6 @@ transactions.register('', views.TransactionViewSet)
 
 
 urlpatterns = [
-    path('transactions/', include(transactions.urls)),
-    path('fibonacci/', views.Fibonacci.as_view()),
+    path('transactions/', include(transactions.urls), name='transactions'),
+    path('fibonacci/', views.Fibonacci.as_view(), name='fibonacci'),
 ]
