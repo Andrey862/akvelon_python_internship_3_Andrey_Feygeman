@@ -166,3 +166,6 @@ REST_FRAMEWORK = {
 
 
 django_heroku.settings(locals())
+
+# Somehow heroku messes that up
+del DATABASES['default']['OPTIONS']['sslmode']
