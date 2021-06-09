@@ -8,14 +8,6 @@ class TransactionSerializer(serializers.ModelSerializer):
         model = Transaction
         fields = ('id', 'created_at', 'amount', 'date', 'type')
 
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('id', 'first_name', 'last_name', 'email')
-
-
-
 class GroupTransactionSerializer(serializers.Serializer):
     date = serializers.DateField()
     sum = serializers.DecimalField(max_digits = 11, decimal_places=2)
