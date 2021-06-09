@@ -164,5 +164,5 @@ REST_FRAMEWORK = {
     ),
 }
 
-if '/app' in env('HOME', default = ''):
-    django_heroku.settings(locals())
+
+django_heroku.settings(locals())
