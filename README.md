@@ -14,6 +14,13 @@ CRUD on your transactions | [/api/v1/transactions/](http://akvelon-python-intern
 your transactions grouped by date | [/api/v1/transactions/group_by_day/](http://akvelon-python-internship.herokuapp.com/api/v1/transactions/group_by_day/) | cumulative money gain per date. Allows filtering(open the link)
 | find Nth fibonacci number |[/api/v1/fibonacci/](http://akvelon-python-internship.herokuapp.com/api/v1/fibonacci/)
 
+## View all users data:
+For this you need to ented as an admin and go to  [/admin/core/transaction/](https://akvelon-python-internship.herokuapp.com/admin/core/transaction/)
+
+login | password
+--- | ---
+admin| admin
+
 # fibonacci
 
 function itself located in [`core/utils.py`](core/utils.py)  
